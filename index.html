@@ -3,10 +3,11 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>asdfasdfsadf</title>
+        <title>iambennyk</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <style>
      
            
@@ -21,14 +22,15 @@
        .content {
   position: relative;
   z-index: 1;
-  font-family:"Questrial";
-  max-width: 800px;
+  font-family:"Raleway";
+  max-width: min(75vw, 1400px);
   margin: 0 auto;
   padding: 40px 20px;
 
   display: flex;
   flex-direction: column;
   gap: 20px;
+  
 }
 
 
@@ -40,32 +42,189 @@
 
   border-radius: 24px;
   padding: 24px;
+  
 }
 
 .card img {
   width: 100%;
   border-radius: 12px;
   margin-top: 12px;
-}    
+}
+
+.section-title {
+  text-align: center;
+  margin: 30px 0 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  text-shadow: 
+    -1px -1px 0 #fff,  
+     1px -1px 0 #fff,
+    -1px  1px 0 #fff,
+     1px  1px 0 #fff;
+}
+
+.section-title a {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.65;
+  font-size: 0.8rem;
+  text-transform: none;
+  letter-spacing: 0;
+  margin-left: 10px;
+}
+
+.section-title a:hover { opacity: 1; text-decoration: underline; }
+
+.latest-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(20,20,30,0.75);
+  color: rgba(255,255,255,0.9);
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+}
+
+.thumb-card { position: relative; }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  
+}
+
+.thumb-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.thumb-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+
+.thumb-card img {
+  width: 100%;
+  aspect-ratio: 16 / 16;
+  object-fit: cover;
+  display: block;
+  background: rgba(0,0,0,0.15);
+}
+
+.thumb-card .info {
+  padding: 12px 14px 14px;
+}
+
+.thumb-card h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.thumb-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.thumb-fallback {
+  width: 100%;
+  aspect-ratio: 16 / 16;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+  color: rgba(255,255,255,0.85);
+  background: linear-gradient(135deg, rgba(60,60,90,0.6), rgba(20,20,40,0.6));
+}
+
+.hero {
+  text-align: center;
+  padding: 20px 5px 20px;
+}
+
+.hero h1 { 
+  margin: 0 5px 20px;
+  font-size: 2.4rem;
+}
+
+.hero p {
+  margin: 0;
+  opacity: 0.85;
+}
+
+@media (max-width: 600px) {
+  .gallery { grid-template-columns: 1fr 1fr; }
+}
+
+.site-footer {
+  text-align: center;
+  padding: 30px 0 10px;
+  opacity: 0.85;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  text-shadow: 
+    -1px -1px 0 #fff,  
+     1px -1px 0 #fff,
+    -1px  1px 0 #fff,
+     1px  1px 0 #fff;
+}
+
+.site-footer a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  padding-bottom: 2px;
+  transition: opacity 0.15s ease;
+  font-family:"Questrial";
+}
+
+.site-footer a:hover { 
+    opacity: 0.7;
+ }    
         </style>
     </head>
     <body>
      <main class="content">
-    <div class="card">
-      <h2>Lorem Ipsum</h2>
-      <p>Dolor sit whavever Dolor sit whavever Dolor sit whavever Dolor sit whavever Dolor sit whavever Dolor sit whavever Dolor sit whavever</p>
-   
+    <div class="hero card">
+      <h1>Hi, I'm Benny</h1>
+      <p>I am an aspiring mechanical engineer that loves to spend time programming and creating things in the Desmos graphing calculator.</p>
     </div>
-    <div class="card">
-      <h2>Another ipsom</h2>
-      <p>consectetur consectetur consectetur consectetur consectetur consectetur consectetur consectetur consectetur consectetur consectetur consectetur consectetur consectetur consectetur consectetur consectetur consectetur consectetur consectetur consectetur consectetur consectetur </p>
-    </div>
-<div class="card">
-      <h2>adipliscing</h2>
-      <p>elit.</p>
-    </div>
+
+    <h2 class="section-title">Khan Academy Programs <a href="programs.html">view all →</a></h2>
+    <div class="gallery" id="khan-gallery"></div>
+
+    <h2 class="section-title">Desmos Graphs <a href="graphs.html">view all →</a></h2>
+    <div class="gallery" id="desmos-gallery"></div>
   </main>
-    <canvas id = 'canvas' width = '1200' height = '1200'></canvas>
+  <footer class="site-footer">
+    <a href="https://www.khanacademy.org/profile/kaid_375460112550893828689953" target="_blank" rel="noopener">Khan Academy</a>
+    <a href="https://github.com/Bearkirb" target="_blank" rel="noopener">GitHub</a>
+  </footer>
+<script src="data.js"></script>
+<script>
+window.SHOWCASE_CONFIG = {
+    khan: (typeof khanPrograms !== 'undefined') ? khanPrograms : null,
+    desmos: (typeof desmosGraphs !== 'undefined') ? desmosGraphs : null,
+    featured: true 
+};
+</script>
+<script src="gallery.js"></script>
+<canvas id = 'canvas' width = '1200' height = '1200'></canvas>
    
    
     <script id = 'vertex-shader' type = 'glsl'>#version 300 es
@@ -226,6 +385,7 @@ gl.viewport(0,0,windowWidth,windowHeight);
   canvas.width=windowWidth;
   canvas.height=windowHeight;
   console.log(windowWidth)
+  ctx.filter = 'blur(4px)';
 });
 function createShader(gl, type, source) {
     const shader = gl.createShader(type);
@@ -289,7 +449,7 @@ var interval = 1000 / fps;
 for (let i = window.requestAnimationFrame(function() {}); i > 0; i--) {
     window.cancelAnimationFrame(i);
 }
-ctx.filter = 'blur(0.5px)';
+ctx.filter = 'blur(4px)';
 let scrollProxy=0;
 let pscrollProxy=0;
 let scrollProxyVel=0;
