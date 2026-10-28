@@ -3,10 +3,11 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Graphs — My Showcase</title>
+        <title>iambennyk</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <style>
      
            
@@ -21,14 +22,15 @@
        .content {
   position: relative;
   z-index: 1;
-  font-family:"Questrial";
-  max-width: 800px;
+  font-family:"Raleway";
+  max-width: min(75vw, 1400px);
   margin: 0 auto;
   padding: 40px 20px;
 
   display: flex;
   flex-direction: column;
   gap: 20px;
+  
 }
 
 
@@ -40,6 +42,7 @@
 
   border-radius: 24px;
   padding: 24px;
+  
 }
 
 .card img {
@@ -48,13 +51,17 @@
   margin-top: 12px;
 }
 
-/* ---- showcase sections ---- */
 .section-title {
   text-align: center;
   margin: 30px 0 0;
   letter-spacing: 2px;
   text-transform: uppercase;
   font-size: 1.1rem;
+  text-shadow: 
+    -1px -1px 0 #fff,  
+     1px -1px 0 #fff,
+    -1px  1px 0 #fff,
+     1px  1px 0 #fff;
 }
 
 .section-title a {
@@ -69,10 +76,37 @@
 
 .section-title a:hover { opacity: 1; text-decoration: underline; }
 
+/* featured (home page) galleries: center the single card */
+.gallery.featured {
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.gallery.featured .thumb-card {
+  width: min(60vw, 640px);
+}
+
+.latest-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(20,20,30,0.75);
+  color: rgba(255,255,255,0.9);
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+}
+
+.thumb-card { position: relative; }
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 16px;
+  
 }
 
 .thumb-card {
@@ -128,26 +162,17 @@
 
 .hero {
   text-align: center;
-  padding: 60px 0 20px;
+  padding: 20px 5px 20px;
 }
 
-.hero h1 {
-  margin: 0 0 10px;
+.hero h1 { 
+  margin: 0 5px 20px;
   font-size: 2.4rem;
 }
 
 .hero p {
   margin: 0;
   opacity: 0.85;
-}
-
-.hero p a { color: inherit; }
-
-.empty-note {
-  opacity: 0.7;
-  font-size: 0.9rem;
-  text-align: center;
-  grid-column: 1 / -1;
 }
 
 @media (max-width: 600px) {
@@ -161,6 +186,11 @@
   display: flex;
   gap: 24px;
   justify-content: center;
+  text-shadow: 
+    -1px -1px 0 #fff,  
+     1px -1px 0 #fff,
+    -1px  1px 0 #fff,
+     1px  1px 0 #fff;
 }
 
 .site-footer a {
@@ -170,9 +200,12 @@
   border-bottom: 1px solid rgba(255,255,255,0.5);
   padding-bottom: 2px;
   transition: opacity 0.15s ease;
+  font-family:"Questrial";
 }
 
-.site-footer a:hover { opacity: 0.7; }    
+.site-footer a:hover { 
+    opacity: 0.7;
+ }    
         </style>
     </head>
     <body>

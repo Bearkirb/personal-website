@@ -26,14 +26,15 @@
                 badge.className = 'latest-badge';
                 badge.textContent = kind === 'khan' ? 'Latest program' : 'Latest graph';
                 a.append(badge);
-            }
+            } 
 
             if (item.thumb) {
                 const img = document.createElement('img');
-                img.loading = 'lazy';
-                img.src = item.thumb;
+                img.loading = 'eager';
                 img.alt = (item.title || 'project') + ' thumbnail';
+                img.referrerPolicy = 'no-referrer';
                 a.append(img);
+                loadThumb(img, item.thumb, a);
             } else {
                 const fb = document.createElement('div');
                 fb.className = 'thumb-fallback';
@@ -54,6 +55,26 @@
         }
     }
 
+    // Khan Academy blocks hotlinked images from non-browser requests
+    // (bot challenge), and rate-limits real browsers sometimes. There's
+    // no reliable proxy workaround: image proxies can't pass the
+    // challenge either, and wsrv.nl responds HTTP 200 with its own
+    // "noimage" placeholder — which silently replaces our fallback.
+    // So: try the direct URL (works with the visitor's own browser
+    // session); if it fails, swap in the styled placeholder tile so
+    // nothing looks broken.
+    function loadThumb(img, src, card) {
+        img.onerror = () => {
+            img.remove();
+            const fb = document.createElement('div');
+            fb.className = 'thumb-fallback';
+            fb.textContent = '</>';
+            card.insertBefore(fb, card.firstChild);
+        };
+
+        img.src = src;
+    }
+
     function ready(fn) {
         if (document.readyState !== 'loading') fn();
         else document.addEventListener('DOMContentLoaded', fn);
@@ -61,8 +82,14 @@
 
     ready(() => {
         const khanEl = document.getElementById('khan-gallery');
-        if (khanEl && cfg.khan) renderList(cfg.khan, 'khan', khanEl, !!cfg.featured);
+        if (khanEl && cfg.khan) {
+            if (cfg.featured) khanEl.classList.add('featured');
+            renderList(cfg.khan, 'khan', khanEl, !!cfg.featured);
+        }
         const desmosEl = document.getElementById('desmos-gallery');
-        if (desmosEl && cfg.desmos) renderList(cfg.desmos, 'desmos', desmosEl, !!cfg.featured);
+        if (desmosEl && cfg.desmos) {
+            if (cfg.featured) desmosEl.classList.add('featured');
+            renderList(cfg.desmos, 'desmos', desmosEl, !!cfg.featured);
+        }
     });
 })();
