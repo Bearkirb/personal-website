@@ -55,14 +55,6 @@
         }
     }
 
-    // Khan Academy blocks hotlinked images from non-browser requests
-    // (bot challenge), and rate-limits real browsers sometimes. There's
-    // no reliable proxy workaround: image proxies can't pass the
-    // challenge either, and wsrv.nl responds HTTP 200 with its own
-    // "noimage" placeholder — which silently replaces our fallback.
-    // So: try the direct URL (works with the visitor's own browser
-    // session); if it fails, swap in the styled placeholder tile so
-    // nothing looks broken.
     function loadThumb(img, src, card) {
         img.onerror = () => {
             img.remove();
