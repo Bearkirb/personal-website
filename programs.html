@@ -392,6 +392,7 @@ gl.viewport(0,0,windowWidth,windowHeight);
   canvas.width=windowWidth;
   canvas.height=windowHeight;
   console.log(windowWidth)
+  ctx.filter = 'blur(4px)';
 });
 function createShader(gl, type, source) {
     const shader = gl.createShader(type);
@@ -455,7 +456,7 @@ var interval = 1000 / fps;
 for (let i = window.requestAnimationFrame(function() {}); i > 0; i--) {
     window.cancelAnimationFrame(i);
 }
-ctx.filter = 'blur(0.5px)';
+ctx.filter = 'blur(4px)';
 let scrollProxy=0;
 let pscrollProxy=0;
 let scrollProxyVel=0;
