@@ -176,7 +176,17 @@
 }
 
 @media (max-width: 600px) {
-  .gallery { grid-template-columns: 1fr 1fr; }
+  .content { max-width: 100vw; }
+  .gallery { grid-template-columns: 1fr; }
+  .gallery.featured .thumb-card { width: 100%; }
+  .hero h1 { font-size: 1.7rem; }
+  .hero p { font-size: 1rem; }
+  .section-title { font-size: 1rem; }
+  .section-title a { font-size: 0.85rem; }
+  .thumb-card h3 { font-size: 1.1rem; }
+  .thumb-card p { font-size: 0.95rem; opacity: 0.85; }
+  .site-footer a { font-size: 1.05rem; }
+  .latest-badge { font-size: 0.8rem; }
 }
 
 .site-footer {

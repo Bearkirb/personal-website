@@ -3,6 +3,7 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>iambennyk</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,7 +77,6 @@
 
 .section-title a:hover { opacity: 1; text-decoration: underline; }
 
-/* featured (home page) galleries: center the single card */
 .gallery.featured {
   grid-template-columns: 1fr;
   justify-items: center;
@@ -176,7 +176,17 @@
 }
 
 @media (max-width: 600px) {
-  .gallery { grid-template-columns: 1fr 1fr; }
+  .content { max-width: 100vw; }
+  .gallery { grid-template-columns: 1fr; }
+  .gallery.featured .thumb-card { width: 100%; }
+  .hero h1 { font-size: 1.7rem; }
+  .hero p { font-size: 1rem; }
+  .section-title { font-size: 1rem; }
+  .section-title a { font-size: 0.85rem; }
+  .thumb-card h3 { font-size: 1.1rem; }
+  .thumb-card p { font-size: 0.95rem; opacity: 0.85; }
+  .site-footer a { font-size: 1.05rem; }
+  .latest-badge { font-size: 0.8rem; }
 }
 
 .site-footer {
@@ -224,6 +234,7 @@
   <footer class="site-footer">
     <a href="https://www.khanacademy.org/profile/kaid_375460112550893828689953" target="_blank" rel="noopener">Khan Academy</a>
     <a href="https://github.com/Bearkirb" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.shadertoy.com/user/BearKirb" target="_blank" rel="noopener">Shadertoy</a>
   </footer>
 <script src="data.js"></script>
 <script>
