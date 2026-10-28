@@ -1,6 +1,8 @@
 (function () {
+    //Use saved config to decide what cards to use and if featured.
     const cfg = window.SHOWCASE_CONFIG || {};
 
+    //pushes the given gallery to the right page.
     function renderList(list, kind, container, featured) {
         if (!list || !list.length) {
             const empty = document.createElement('p');
@@ -12,6 +14,7 @@
             return;
         }
 
+        //Reverse items so it is easier to add new items chronologically.
         const items = featured ? [list[list.length - 1]] : [...list].reverse();
 
         for (const item of items) {
@@ -21,6 +24,7 @@
             a.target = '_blank';
             a.rel = 'noopener';
 
+            //main page only
             if (featured) {
                 const badge = document.createElement('span');
                 badge.className = 'latest-badge';
@@ -28,6 +32,7 @@
                 a.append(badge);
             } 
 
+            //Thumbnails with a nicer looking fallback, changes to that fallback also if imageload fails later.
             if (item.thumb) {
                 const img = document.createElement('img');
                 img.loading = 'eager';
@@ -42,6 +47,7 @@
                 a.append(fb);
             }
 
+            //Create the card elements
             const info = document.createElement('div');
             info.className = 'info';
             const h3 = document.createElement('h3');
@@ -55,6 +61,7 @@
         }
     }
 
+    //Handles image failure cause it happens.  But shouldn't anymore
     function loadThumb(img, src, card) {
         img.onerror = () => {
             img.remove();
@@ -67,11 +74,11 @@
         img.src = src;
     }
 
+    //Handle galleries when ready
     function ready(fn) {
         if (document.readyState !== 'loading') fn();
         else document.addEventListener('DOMContentLoaded', fn);
     }
-
     ready(() => {
         const khanEl = document.getElementById('khan-gallery');
         if (khanEl && cfg.khan) {
